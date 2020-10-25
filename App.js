@@ -1,30 +1,15 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  SafeAreaSafeAreaView,
-} from "react-native";
+import { View } from "react-native";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  const handlePress = () => console.log("Text pressed");
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress()}>
-        {" "}
-        papa lorem100phi hfgiph spgpi ship hip hpivsidp' fiihg hipvafphipsg ipsh
-        g jkeksafkash'gf hahd ha ihpdahs gfh psih ghxf gphx fgihp{" "}
-      </Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "dodgerblue",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "green",
+//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+//   },
+// });
