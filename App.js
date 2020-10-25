@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // import AppText from "./app/components/AppText";
 // import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
 
 export default function App() {
   return (
@@ -16,7 +17,11 @@ export default function App() {
         paddingTop: 100,
       }}
     >
-      <Card title="Red jacket for sale" subTitle="100" />
+      <Card
+        title="Red jacket e"
+        subTitle="100$"
+        image={require("./app/assets/splash.png")}
+      />
     </View>
   );
 }
