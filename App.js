@@ -1,5 +1,5 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -15,7 +15,16 @@ import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import ListItemDeleteAction from "./app/components/ListItemDeleteAction";
 import AccountScreen from "./app/screens/AccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import { TextInput } from "react-native-gesture-handler";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  return <AccountScreen />;
+  const [firstname, setFirstName] = useState("");
+
+  return (
+    <Screen>
+      <WelcomeScreen />
+    </Screen>
+  );
 }
