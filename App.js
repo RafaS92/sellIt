@@ -9,9 +9,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 // import  ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
 }
 
 // const styles = StyleSheet.create({
