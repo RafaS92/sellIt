@@ -5,9 +5,11 @@ import {
   StyleSheet,
   Platform,
   StatusBar,
+  View,
 } from "react-native";
 
 import ListItem from "../components/ListItem";
+import ListItemSeparator from "../components/ListItemSeparator";
 
 const messages = [
   {
@@ -35,9 +37,10 @@ function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("selected", item)}
           />
         )}
-        ItemSeparatorComponent={(props) => <View />}
+        ItemSeparatorComponent={() => ListItemSeparator}
       />
     </SafeAreaView>
   );
