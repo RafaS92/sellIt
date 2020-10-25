@@ -2468,7 +2468,7 @@
     "path-browserify" "^1.0.0"
     "url-parse" "^1.4.4"
 
-"expo-constants@~9.2.0":
+"expo-constants@^9.2.0", "expo-constants@~9.2.0":
   "integrity" "sha512-WKwiEMvBgPrEPEyZKm21UUB2KWQux9OCWf6ZDORLTln7kO3rsbaJEprfWUWTP7AxyaLMYfN+/0WFHjZc25SZWQ=="
   "resolved" "https://registry.yarnpkg.com/expo-constants/-/expo-constants-9.2.0.tgz"
   "version" "9.2.0"
