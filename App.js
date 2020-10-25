@@ -5,12 +5,18 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 // import AppText from "./app/components/AppText";
-import AppButton from "./app/components/AppButton";
+// import AppButton from "./app/components/AppButton";
 
 export default function App() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppButton title="Login" onPress={() => console.log("Tap")}></AppButton>
+    <View
+      style={{
+        backgroundColor: "#f8f4f",
+        padding: 20,
+        paddingTop: 100,
+      }}
+    >
+      <Card title="Red jacket for sale" subTitle="100" />
     </View>
   );
 }
