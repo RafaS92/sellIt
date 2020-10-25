@@ -7,7 +7,7 @@ import colors from "../config/colors";
 function ListItem({ title, subTitle, image, onPress, renderRightActions }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <TouchableHighlight underlayColor={colors.green} onPress={onPress}>
+      <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
         <View style={styles.container}>
           <Image source={image} style={styles.image} />
           <View>
