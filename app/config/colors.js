@@ -7,4 +7,5 @@ export default {
   gray: "#6e6969",
   lightGray: "#f8f4f4",
   green: "green",
+  danger: "#ff5252",
 };
