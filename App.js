@@ -19,11 +19,3 @@ import AccountScreen from "./app/screens/AccountScreen";
 export default function App() {
   return <AccountScreen />;
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "green",
-//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-//   },
-// });
