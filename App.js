@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <Screen>
-      <WelcomeScreen />
+     <AppTextInput placeholder="Username" icon="email" />
     </Screen>
   );
 }
