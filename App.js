@@ -14,13 +14,10 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import ListItemDeleteAction from "./app/components/ListItemDeleteAction";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListItem title="My title" ImageComponent={<Icon name="email" />} />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
 
 // const styles = StyleSheet.create({
