@@ -19,20 +19,14 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import { TextInput } from "react-native-gesture-handler";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
+import LoginScreen from './app/screens/LoginScreen';
 
- const categories=[
-   {label: "furniture",value:1,},
-   {label: "shoes",value:2,},
-   {label: "sweater",value:3,}
- ]
-
+ 
 export default function App() {
-  const [firstname, setFirstName] = useState("");
+
+
 
   return (
-    <Screen>
-<AppPicker items={categories} icon="apps" placeholder="Category" />
-<AppTextInput icon="email" placeholder="Email" />
-    </Screen>
+   <LoginScreen />
   );
 }
