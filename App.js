@@ -24,19 +24,40 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
+import {NavigationContainer} from "@react-navigation/native"
+import {createStackNavigator} from '@react-navigation/stack'
+import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from './app/navigation/AppNavigator';
 
+const Tweets = () => (
+  <Screen>
+    <Text>Tweets</Text>
+  </Screen>
+)
 
+const TweetDetails =() => (
+  <Screen>
+    <Text>Tweet Details</Text>
+  </Screen>
+)
  
+const Stack = createStackNavigator()
+const StackNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Tweeks" component={Tweets} />
+    <Stack.Screen name="TweekDetails" component={TweetDetails} />
+  </Stack.Navigator>
+)
+
 export default function App() {
 
   
   return (
 
     
-
-    <Screen>
-     
-      <ListingEditScreen  />
-    </Screen>
+<NavigationContainer theme={navigationTheme}>
+  <AppNavigator />
+</NavigationContainer>
    );
 }
