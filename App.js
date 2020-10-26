@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { Text, View,Switch } from "react-native";
+import React, { useState,useEffect } from "react";
+import { Text, View,Switch, Button, ImagePickerIOS, Image } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
 import ListItem from "./app/components/ListItem";
 // import AppText from "./app/components/AppText";
-// import AppButton from "./app/components/AppButton";
+import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 // import  ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
@@ -21,11 +22,44 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import ImageInput from './app/components/ImageInput';
+
 
  
 export default function App() {
 
+  const [imageUri, setImageUri] = useState()
+
+  const requestPermission = async() => {
+    const {granted} = await ImagePicker.requestCameraRollPermissionsAsync()
+    if(!granted)alert("need permissions please")
+  }
+
+  useEffect(() => {
+   requestPermission()
+
+  }, [])
+
+  const selectImage = async () => {
+
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync()
+      if(!result.cancelled){
+        setImageUri(result.uri)
+      } 
+    } catch (error) {
+      console.log("errorsote",error)
+    }
+  }
 
 
-  return (<ListingEditScreen /> );
+  return (
+
+    
+
+    <Screen>
+     
+      <ImageInput onChangeImage={uri => setImageUri(uri)} imageUri={imageUri} />
+    </Screen>
+   );
 }
