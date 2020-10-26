@@ -11,7 +11,7 @@ import PickerItem from './PickerItem';
 
 function AppPicker({ icon,placeholder,items,onSelectItem,selectedItem,...otherProps}) {
 
-    const[modalVisible,setModalVisible] = useState(categories[0])
+    const[modalVisible,setModalVisible] = useState(false)
 
 
 
