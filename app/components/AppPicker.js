@@ -9,9 +9,9 @@ import Screen from './Screen';
 import PickerItem from './PickerItem';
 
 
-function AppPicker({ icon,placeholder,items,...otherProps}) {
+function AppPicker({ icon,placeholder,items,onSelectItem,selectedItem,...otherProps}) {
 
-    const[modalVisible,setModalVisible] = useState(false)
+    const[modalVisible,setModalVisible] = useState(categories[0])
 
 
 
@@ -24,7 +24,7 @@ function AppPicker({ icon,placeholder,items,...otherProps}) {
     <View style={styles.container}>
       {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.gray} style={styles.icon} />}
       <TextInput style={defaultStyles.text} {...otherProps}/>
-  <AppText style={styles.text}>{placeholder}</AppText>
+  <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
   <MaterialCommunityIcons name={"chevron-down"} size={20} color={colors.gray}  />
     </View>
     </TouchableWithoutFeedback>
@@ -36,7 +36,10 @@ function AppPicker({ icon,placeholder,items,...otherProps}) {
         keyExtractor={item => item.value.toString()}
         renderItem={({item}) => <PickerItem
         label={item.label}
-        onPress={()=> console.log("heyoo")}
+        onPress={()=>{
+            setModalVisible(false)
+            onSelectItem(item)
+        } }
         /> }
         />
         </Screen>
