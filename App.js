@@ -27,6 +27,8 @@ import ImageInputList from './app/components/ImageInputList';
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from '@react-navigation/stack'
 import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from './app/navigation/AppNavigator';
 
 const Tweets = () => (
   <Screen>
@@ -54,8 +56,8 @@ export default function App() {
   return (
 
     
-<NavigationContainer>
-  <AuthNavigator />
+<NavigationContainer theme={navigationTheme}>
+  <AppNavigator />
 </NavigationContainer>
    );
 }
