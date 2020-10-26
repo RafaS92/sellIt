@@ -27,5 +27,5 @@ export default function App() {
 
 
 
-  return ( <ListingEditScreen />);
+  return (<ListingEditScreen /> );
 }
