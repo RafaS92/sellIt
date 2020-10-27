@@ -29,6 +29,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer,useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthNavigator from "./app/components/navigation/AuthNavigator";
+import navigationTheme from "./app/components/navigation/navigationTheme"
 
 
 
@@ -88,7 +89,7 @@ export default function App() {
 
   return (
 
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <AuthNavigator />
     </NavigationContainer>
      
