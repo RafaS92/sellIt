@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 
+
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
+import Screen from '../components/Screen';
 
 function ListingDetailsScreen({route}) {
 
@@ -11,10 +13,11 @@ function ListingDetailsScreen({route}) {
 
   return (
     <View>
+      <Screen>
       <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-  <AppText style={styles.title}>{listing.title}</AppText>
-  <AppText style={styles.price}>{listing.price}</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.price}>{listing.price}</AppText>
       </View>
       <View style={styles.userContainer}>
         <ListItem
@@ -23,6 +26,10 @@ function ListingDetailsScreen({route}) {
           subTitle="5 Listings"
         />
       </View>
+
+
+      </Screen>
+      
     </View>
   );
 }

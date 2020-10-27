@@ -43,6 +43,7 @@ function AccountScreen({navigation}) {
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
+              
               title={item.title}
               IconComponent={
                 <Icon
