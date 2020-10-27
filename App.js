@@ -24,6 +24,12 @@ import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
+import {NavigationContainer} from "@react-navigation/native"
+import {createStackNavigator} from '@react-navigation/stack'
+import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from './app/navigation/AppNavigator';
+
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer,useNavigation } from '@react-navigation/native';
@@ -80,16 +86,27 @@ const TabNavigator = () =>(
     <Tab.Screen  name="Feed" component={Tweets}  options={{tabBarIcon: ({size,color}) => <MaterialCommunityIcons name="home" size={size} color={color} /> }} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
+
 )
  
+const Stack = createStackNavigator()
+const StackNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Tweeks" component={Tweets} />
+    <Stack.Screen name="TweekDetails" component={TweetDetails} />
+  </Stack.Navigator>
+)
+
 export default function App() {
 
   return (
+
 
     <NavigationContainer>
       <TabNavigator />
     </NavigationContainer>
      
     
+
    );
 }
