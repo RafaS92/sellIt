@@ -26,46 +26,19 @@ import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
 import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from '@react-navigation/stack'
-import AuthNavigator from './app/navigation/AuthNavigator';
-import navigationTheme from "./app/navigation/navigationTheme";
+
 import AppNavigator from './app/navigation/AppNavigator';
 
 
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer,useNavigation } from '@react-navigation/native';
+
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthNavigator from "./app/components/navigation/AuthNavigator";
 import navigationTheme from "./app/components/navigation/navigationTheme"
 
 
 
-const Link =() => {
 
- const navigation = useNavigation()
-  
-  return(
-    <Button 
-    title="Click"
-    onPress={() => navigation.navigate("TweetDetails",{id: 1})}
-    />
-
-  )
-  
-
-}
-
-const Tweets = ({navigation})=>(
-  <Screen>
-    <Text>Tweets</Text>
-    <Link />
-  </Screen>
-) 
-
-const TweetDetails = ({route}) => (
-  <Screen>
-    <Text>TweetDetails {route.params.id}</Text>
-  </Screen>
-) 
 
 const Stack = createStackNavigator()
 
@@ -92,25 +65,13 @@ const TabNavigator = () =>(
 
 )
  
-const Stack = createStackNavigator()
-const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tweeks" component={Tweets} />
-    <Stack.Screen name="TweekDetails" component={TweetDetails} />
-  </Stack.Navigator>
-)
-
 export default function App() {
 
   return (
 
-<<<<<<< HEAD
-    <NavigationContainer theme={navigationTheme}>
-=======
 
-    <NavigationContainer>
->>>>>>> 03eeba774104a6e6e7e2d0f2b09d94d7f493b33b
-      <AuthNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
      
     
