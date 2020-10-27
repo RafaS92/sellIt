@@ -7,6 +7,8 @@ import colors from "../config/colors";
 import navigationTheme from "../navigation/navigationTheme";
 import routes from "../navigation/routes"
 import listingsApi from "../api/listings"
+import AppText from '../components/AppText';
+import AppButton from '../components/AppButton';
 
 
 
@@ -14,6 +16,7 @@ function ListingsScreen({navigation}) {
 
 
 const [listings,setListings ]= useState([])
+const [error,setError] = useState(false)
 
 
 useEffect(() => {
@@ -25,14 +28,22 @@ useEffect(() => {
 
 const loadListings = async () => {
 const response = await listingsApi.getListings()
-setListings(response.data)
 
+if(!response.ok) return setError(true)
+setError(false)
+setListings(response.data)
 }
 
 
 
   return (
     <Screen style={styles.screen}>
+      {error && <> 
+        
+        <AppText>Couldn't retrieve the listings</AppText>
+        <AppButton title="Retry" onPress={loadListings} />
+      
+      </>}
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
