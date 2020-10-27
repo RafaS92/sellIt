@@ -11,7 +11,7 @@ import colors from "../config/colors";
 
 function Card({ title, subTitle, imageUrl, onPress }) {
 
-  console.log(imageUrl)
+ 
   
 
   return (
