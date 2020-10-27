@@ -3,12 +3,15 @@ import Screen from "../components/Screen";
 import Card from "../components/Card";
 import { StyleSheet, FlatList } from "react-native";
 
+
+
 import colors from "../config/colors";
 import navigationTheme from "../navigation/navigationTheme";
 import routes from "../navigation/routes"
 import listingsApi from "../api/listings"
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import ActivityIndicator from '../components/ActivityIndicator';
 
 
 
@@ -17,6 +20,7 @@ function ListingsScreen({navigation}) {
 
 const [listings,setListings ]= useState([])
 const [error,setError] = useState(false)
+const [loading,setLoading] = useState(false)
 
 
 useEffect(() => {
@@ -27,7 +31,9 @@ useEffect(() => {
 }, [])
 
 const loadListings = async () => {
+setLoading(true)
 const response = await listingsApi.getListings()
+setLoading(false)
 
 if(!response.ok) return setError(true)
 setError(false)
@@ -44,6 +50,7 @@ setListings(response.data)
         <AppButton title="Retry" onPress={loadListings} />
       
       </>}
+      <ActivityIndicator visible={loading}></ActivityIndicator>
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
