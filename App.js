@@ -34,6 +34,8 @@ import AppNavigator from './app/navigation/AppNavigator';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer,useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AuthNavigator from "./app/components/navigation/AuthNavigator";
+
 
 
 const Link =() => {
@@ -103,7 +105,7 @@ export default function App() {
 
 
     <NavigationContainer>
-      <TabNavigator />
+      <AuthNavigator />
     </NavigationContainer>
      
     
