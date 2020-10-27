@@ -5,7 +5,7 @@ import styles from '../config/styles'
 export default function other() {
     return (
         <View style={styles.container}>
-            
+            //lottie
         </View>
     )
 }
