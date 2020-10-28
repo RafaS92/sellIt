@@ -6,6 +6,7 @@ export default function other() {
     return (
         <View style={styles.container}>
             //lottie
+            //jwt-decode
         </View>
     )
 }
