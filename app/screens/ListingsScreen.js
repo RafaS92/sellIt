@@ -34,6 +34,8 @@ useEffect(() => {
 
 
   return (
+    <>
+    <ActivityIndicator visible={getListingsApi.loading} />
     <Screen style={styles.screen}>
       {getListingsApi.error && <> 
         
@@ -41,7 +43,6 @@ useEffect(() => {
         <AppButton title="Retry" onPress={loadListings} />
       
       </>}
-      <ActivityIndicator visible={getListingsApi.loading}></ActivityIndicator>
       <FlatList
         data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
@@ -56,6 +57,7 @@ useEffect(() => {
         )}
       />
     </Screen>
+    </>
   );
 }
 
