@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useNetInfo } from "react";
 import { Text, View,Switch, Button, ImagePickerIOS, Image } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -35,46 +35,62 @@ import AppNavigator from './app/navigation/AppNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthNavigator from "./app/components/navigation/AuthNavigator";
 import navigationTheme from "./app/components/navigation/navigationTheme"
+import NetInfo from '@react-native-community/netinfo'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import OfflineNotice from "./app/components/OfflineNotice";
 
 
 
 
+// const Stack = createStackNavigator()
 
-const Stack = createStackNavigator()
+// const StackNavigator = () =>(
+//   <Stack.Navigator
+//     screenOptions={{
+//       headerStyle:{backgroundColor: "blue"},headerTintColor: "white"
 
-const StackNavigator = () =>(
-  <Stack.Navigator
-    screenOptions={{
-      headerStyle:{backgroundColor: "blue"},headerTintColor: "white"
+//     }}
+//   >
+//     <Stack.Screen name="Tweets" component={Tweets} />
+//     <Stack.Screen name="TweetDetails" component={TweetDetails} options={{headerStyle:{backgroundColor: "gold"},headerTintColor: "white", headerShown: false}} />
+//   </Stack.Navigator>
+// )
 
-    }}
-  >
-    <Stack.Screen name="Tweets" component={Tweets} />
-    <Stack.Screen name="TweetDetails" component={TweetDetails} options={{headerStyle:{backgroundColor: "gold"},headerTintColor: "white", headerShown: false}} />
-  </Stack.Navigator>
-)
+// const Account = () => <Screen><Text>Account</Text></Screen>
 
-const Account = () => <Screen><Text>Account</Text></Screen>
+// const Tab = createBottomTabNavigator()
+// const TabNavigator = () =>(
+//   <Tab.Navigator>
+//     <Tab.Screen  name="Feed" component={Tweets}  options={{tabBarIcon: ({size,color}) => <MaterialCommunityIcons name="home" size={size} color={color} /> }} />
+//     <Tab.Screen name="Account" component={Account} />
+//   </Tab.Navigator>
 
-const Tab = createBottomTabNavigator()
-const TabNavigator = () =>(
-  <Tab.Navigator>
-    <Tab.Screen  name="Feed" component={Tweets}  options={{tabBarIcon: ({size,color}) => <MaterialCommunityIcons name="home" size={size} color={color} /> }} />
-    <Tab.Screen name="Account" component={Account} />
-  </Tab.Navigator>
-
-)
+// )
  
 export default function App() {
 
+  const demo = async() => {
+
+    try {
+      await AsyncStorage.setItem('person', JSON.stringify({id: 1}))
+      const value = await AsyncStorage.getItem('person')
+      const person = JSON.parse(value)
+      console.log(person)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  demo()
+
+
   return (
-
-
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-     
-    
-
-   );
+  <>
+    <OfflineNotice />
+     <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+     </NavigationContainer>
+  </>
+)
 }
