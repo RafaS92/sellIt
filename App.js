@@ -28,6 +28,7 @@ import {NavigationContainer} from "@react-navigation/native"
 import {createStackNavigator} from '@react-navigation/stack'
 
 import AppNavigator from './app/navigation/AppNavigator';
+import {navigationRef} from './app/navigation/rootNavigation'
 
 
 
@@ -87,7 +88,7 @@ export default function App() {
   return (
   <AuthContext.Provider value={{user,setUser}}>
     <OfflineNotice />
-     <NavigationContainer theme={navigationTheme}>
+     <NavigationContainer ref={navigationRef} theme={navigationTheme}>
        {user ? <AppNavigator /> : <AuthNavigator />}
         
      </ NavigationContainer>
