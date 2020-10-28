@@ -36,7 +36,7 @@ const [progress, setProgress] = useState(0)
 
    const location = useLocation()
 
-   const handleSubmit = async (listing )=> {
+   const handleSubmit = async (listing, { resetForm } )=> {
     setProgress(0)
     setUploadVisible(true)
 
@@ -50,6 +50,8 @@ const [progress, setProgress] = useState(0)
       setUploadVisible(false)
       return alert('Could not save the listing.');
     } 
+
+    resetForm()
     
    }
 
