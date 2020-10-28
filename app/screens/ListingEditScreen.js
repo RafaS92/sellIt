@@ -95,6 +95,7 @@ const [progress, setProgress] = useState(0)
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    
   },
 });
 export default ListingEditScreen;

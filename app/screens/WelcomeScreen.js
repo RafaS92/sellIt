@@ -11,18 +11,14 @@ function WelcomeScreen({navigation}) {
       style={styles.background}
       source={{
         uri:
-          "https://images.pexels.com/photos/861102/pexels-photo-861102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+          "https://images.pexels.com/photos/3762925/pexels-photo-3762925.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       }}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={{
-            uri:
-              "https://i2.wp.com/freepngimages.com/wp-content/uploads/2015/11/red-sale-transparent-background.png?fit=600%2C600",
-          }}
-        />
-        <Text style={styles.tagline}>Sell here</Text>
+      <Image 
+            style={styles.logo}
+           source={require("../assets/Sellit.png")}/>
+        
       </View>
       <View style={styles.buttonsContainer}>
 
@@ -45,9 +41,9 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   logo: {
-    width: 100,
-    height: 100,
-    backgroundColor: "black",
+    width: 240,
+    height: 120,
+    
   },
   logoContainer: {
     position: "absolute",
@@ -56,8 +52,10 @@ const styles = StyleSheet.create({
   },
   tagline: {
     fontSize: 25,
-    fontWeight: "600",
-    paddingVertical: 20,
+    fontWeight: "800",
+    paddingVertical: 5,
+    color: "gold"
+  
   },
 });
 

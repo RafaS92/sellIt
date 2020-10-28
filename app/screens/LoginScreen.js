@@ -35,7 +35,7 @@ function LoginScreen(props) {
 
            <Image 
             style={styles.logo}
-           source={require("../assets/hermes.png")}/>
+           source={require("../assets/Sellit.png")}/>
            <ErrorMessage
           error="Invalid email and/or password."
           visible={loginFailed}
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         padding:10
     },
     logo:{
-        width: 80,
+        width: 200,
         height: 80,
         alignSelf: "center",
         marginTop: 50,

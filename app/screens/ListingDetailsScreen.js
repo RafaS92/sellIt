@@ -9,7 +9,6 @@ import {
 import Text from "../components/Text"
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
-import Screen from '../components/Screen';
 import { Image } from 'react-native-expo-image-cache';
 import ContactSellerForm from "../components/ContactSellerForm";
 
@@ -30,9 +29,9 @@ function ListingDetailsScreen({route}) {
           <Text style={styles.price}>${listing.price}</Text>
             <View style={styles.userContainer}>
               <ListItem
-                image={require("../assets/Rafablack.png")}
+                image={require("../assets/user2.png")}
                 title="Rafael"
-                subTitle="5 Listings"
+                subTitle="3 Listings"
                 />
             </View>
             <ContactSellerForm listing={listing} />
