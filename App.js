@@ -38,6 +38,7 @@ import navigationTheme from "./app/components/navigation/navigationTheme"
 import NetInfo from '@react-native-community/netinfo'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthContext from './app/auth/context';
 
 
 
@@ -68,6 +69,7 @@ import OfflineNotice from "./app/components/OfflineNotice";
 // )
  
 export default function App() {
+  const [user,setUser] = useState()
 
   const demo = async() => {
 
@@ -86,11 +88,12 @@ export default function App() {
 
 
   return (
-  <>
+  <AuthContext.Provider value={{user,setUser}}>
     <OfflineNotice />
      <NavigationContainer theme={navigationTheme}>
-        <AuthNavigator />
-     </NavigationContainer>
-  </>
-)
+       {user ? <AppNavigator /> : <AuthNavigator />}
+        
+     </ NavigationContainer>
+  </ AuthContext.Provider>
+  );
 }
