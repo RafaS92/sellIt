@@ -9,6 +9,7 @@ import NewListingButton from "./NewListingButton";
 import routes from "./routes";
 import {Notifications} from 'expo'
 import * as Permissions from 'expo-permissions'
+import expoPushTokensApi from "../api/expoPushTokens"
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ const AppNavigator = () => {
   
   
     const token = await  Notifications.getExpoPushTokenAsync()
-    console.log(token)
+    expoPushTokensApi.register(token)
       
     } catch (error) {
       console.log('Error pushing a push token',error)
