@@ -46,6 +46,7 @@ import {AppLoading} from 'expo'
 
 
 
+
 // const Stack = createStackNavigator()
 
 // const StackNavigator = () =>(
@@ -74,21 +75,6 @@ import {AppLoading} from 'expo'
 export default function App() {
   const [user,setUser] = useState()
   const [isReady, setIsReady] = useState(false)
-
-  const demo = async() => {
-
-    try {
-      await AsyncStorage.setItem('person', JSON.stringify({id: 1}))
-      const value = await AsyncStorage.getItem('person')
-      const person = JSON.parse(value)
-      console.log(person)
-    } catch (error) {
-      console.log(error)
-    }
-
-  }
-
-  demo()
 
   const restoreUser = async() => {
     const user = await authStorage.getUser()
