@@ -21,6 +21,9 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "A market place for users to selling items",
-    "githubUrl": "https://github.com/RafaS92/sellIt"
+    "githubUrl": "https://github.com/RafaS92/sellIt",
+    "notification" :{
+      "iosDisplayInForeground": true
+    }
   }
 }

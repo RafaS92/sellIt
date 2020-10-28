@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   screen: {
     padding: 20,
     backgroundColor: colors.lightGray,
+  
   },
 });
 

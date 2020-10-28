@@ -1,13 +1,16 @@
 import React from "react";
-import { View,StyleSheet} from "react-native";
+import {
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
+} from "react-native";
 import Text from "../components/Text"
-
-
-// import Text from "../components/Text";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
-import Screen from '../components/Screen';
 import { Image } from 'react-native-expo-image-cache';
+import ContactSellerForm from "../components/ContactSellerForm";
 
 function ListingDetailsScreen({route}) {
 
@@ -15,25 +18,28 @@ function ListingDetailsScreen({route}) {
   console.log(listing.title)
 
   return (
-    <View>
+    <KeyboardAvoidingView
+    behavior="position"
+    keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+    >
       
       <Image style={styles.image} uri={listing.images[0].url} />
-      <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{listing.title}</Text>
-        <Text style={styles.price}>${listing.price}</Text>
-      </View>
-      <View style={styles.userContainer}>
-        <ListItem
-          image={require("../assets/Rafablack.png")}
-          title="Rafael"
-          subTitle="5 Listings"
-        />
-      </View>
-
+        <View style={styles.detailsContainer}>
+          <Text style={styles.title}>{listing.title}</Text>
+          <Text style={styles.price}>${listing.price}</Text>
+            <View style={styles.userContainer}>
+              <ListItem
+                image={require("../assets/user2.png")}
+                title="Rafael"
+                subTitle="3 Listings"
+                />
+            </View>
+            <ContactSellerForm listing={listing} />
+         </View>
 
       
       
-    </View>
+      </KeyboardAvoidingView>
   );
 }
 
