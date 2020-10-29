@@ -1,12 +1,9 @@
-import React,{useState,useEffect} from "react";
+import React,{useEffect} from "react";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import { StyleSheet, FlatList, ImageBackground } from "react-native";
 
 
-
-import colors from "../config/colors";
-import navigationTheme from "../navigation/navigationTheme";
 import routes from "../navigation/routes"
 import listingsApi from "../api/listings"
 import AppText from '../components/AppText';
