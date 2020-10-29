@@ -11,6 +11,7 @@ import useAuth from '../auth/useAuth';
 
 const menuItems = [
   {
+    Id:1,
     title: "My Listings",
     icon: {
       name: "format-list-bulleted",
@@ -18,7 +19,7 @@ const menuItems = [
     },
     targetScreen: routes.BUILDING,
   },
-  {
+  { id: 2,
     title: "My messages",
     icon: {
       name: "format-list-bulleted",
@@ -31,11 +32,6 @@ const menuItems = [
 function AccountScreen({navigation}) {
 
   const {user, logOut} = useAuth()
-
-  function Random(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-  
 
   
   return (
@@ -62,7 +58,7 @@ function AccountScreen({navigation}) {
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
-              key={Random(10000)}
+              key={item.id}
               title={item.title}
               IconComponent={
                 <Icon

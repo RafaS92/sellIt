@@ -13,7 +13,7 @@ import ListItem from "../components/ListItem";
 import { Image } from 'react-native-expo-image-cache';
 import ContactSellerForm from "../components/ContactSellerForm";
 import useAuth from '../auth/useAuth';
-import Screen from '../components/Screen';
+
 
 
 function ListingDetailsScreen({route}) {
@@ -32,11 +32,15 @@ function ListingDetailsScreen({route}) {
       <Image style={styles.image} uri={listing.images[0].url} />
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{listing.title}</Text>
+          {listing.description ? 
+          <Text style={styles.subtitle}>{listing.description}</Text>
+          : null
+          }
           <Text style={styles.price}>${listing.price}</Text>
             <View style={styles.userContainer}>
               <ListItem
                 image={require("../assets/user2.png")}
-                title="Rafael"
+                title="Bella"
                 subTitle="Premium User"
                 />
             </View>
@@ -62,6 +66,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "500",
+    color: "black"
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: "200",
     color: "black"
   },
   price: {

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { StyleSheet, View, ImageBackground } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
 import * as Yup from "yup";
 
 
@@ -9,13 +9,12 @@ import {
   AppFormPicker,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
 import listingsApi from "../api/listings"
 import UploadScreen from "./UploadScreen";
-import colors from "../config/colors";
+
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -117,7 +116,7 @@ const [progress, setProgress] = useState(0)
       }}
       style={styles.container}
       >
-      <UploadScreen on={() => setUploadVisible(false)} progress={progress} visible={uploadVisible} />
+      <UploadScreen onDone={() => setUploadVisible(false)} progress={progress} visible={uploadVisible} />
     
       
 
