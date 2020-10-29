@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet,Image } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
@@ -58,6 +58,9 @@ const validationSchema = Yup.object().shape({
     <>
     <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
     <Screen style={styles.container}>
+    <Image 
+            style={styles.logo}
+           source={require("../assets/Sellit.png")}/>
       <AppForm
 
         initialValues={{ name: "", email: "", password: "" }}
@@ -106,7 +109,14 @@ const validationSchema = Yup.object().shape({
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-  },
+  },  
+  logo:{
+    width: 200,
+    height: 80,
+    alignSelf: "center",
+    marginTop: 50,
+    marginBottom:20
+}
 });
 
 
