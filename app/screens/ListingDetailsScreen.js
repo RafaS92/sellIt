@@ -19,7 +19,7 @@ import Screen from '../components/Screen';
 function ListingDetailsScreen({route}) {
   const {user, logOut} = useAuth()
   const listing = route.params;
-  console.log(user)
+  
 
   return (
     <ScrollView>
@@ -36,7 +36,7 @@ function ListingDetailsScreen({route}) {
             <View style={styles.userContainer}>
               <ListItem
                 image={require("../assets/user2.png")}
-                title={user.name}
+                title="Rafael"
                 subTitle="Premium User"
                 />
             </View>

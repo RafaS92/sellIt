@@ -7,11 +7,11 @@ import LoginButton from "../components/LoginButton";
 function WelcomeScreen({navigation}) {
   return (
     <ImageBackground
-      blurRadius={3}
+      blurRadius={0}
       style={styles.background}
       source={{
         uri:
-          "https://images.pexels.com/photos/5081918/pexels-photo-5081918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+          "https://i.pinimg.com/originals/98/fe/17/98fe17ea1b5395b50fed0b26c95c95ce.jpg",
       }}
     >
       <View style={styles.logoContainer}>

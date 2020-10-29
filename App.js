@@ -43,6 +43,7 @@ import AuthContext from './app/auth/context';
 import authStorage from "./app/auth/storage"
 import jwtDecode from 'jwt-decode'
 import {AppLoading} from 'expo'
+import Building from "./app/screens/Building"
 
 
 
@@ -89,6 +90,7 @@ export default function App() {
   <AuthContext.Provider value={{user,setUser}}>
     <OfflineNotice />
      <NavigationContainer ref={navigationRef} theme={navigationTheme}>
+       
        {user ? <AppNavigator /> : <AuthNavigator />}
         
      </ NavigationContainer>
