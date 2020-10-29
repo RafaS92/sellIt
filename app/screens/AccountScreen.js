@@ -16,6 +16,7 @@ const menuItems = [
       name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
+    targetScreen: routes.BUILDING,
   },
   {
     title: "My messages",
@@ -31,6 +32,9 @@ function AccountScreen({navigation}) {
 
   const {user, logOut} = useAuth()
 
+  function Random(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
   
 
   
@@ -58,7 +62,7 @@ function AccountScreen({navigation}) {
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
-              
+              key={Random(10000)}
               title={item.title}
               IconComponent={
                 <Icon

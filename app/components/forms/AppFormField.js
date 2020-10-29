@@ -19,6 +19,8 @@ function AppFormField({name,width,...otherProps}) {
                 onChangeText={(text) => setFieldValue(name,text)}
                 width={width}
                 value={values[name]}
+                
+
                 {...otherProps}
                 />
                 <ErrorMessage error={errors[name]} visible={touched[name]} />
