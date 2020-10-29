@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, FlatList, View } from "react-native";
+import { StyleSheet, FlatList, View,Text, Image } from "react-native";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
@@ -37,11 +37,19 @@ function AccountScreen({navigation}) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
-        <ListItem
-          title={user.name}
-          subTitle={user.email}
-          image={require("../assets/user2.png")}
-        />
+        <View style={styles.container2} >
+          <Image style={styles.image} source={require("../assets/user2.png")}  />
+          <View style={styles.textContainer}>
+          <Text style={styles.text2}>
+          Welcome {user.name} !
+          </Text>
+          <Text>
+          {user.email}
+          </Text>
+
+
+          </View>
+        </View>
       </View>
       <View style={styles.container}>
         <FlatList
@@ -77,11 +85,31 @@ function AccountScreen({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
+    marginVertical: 10,
+  },
+  container2: {
     marginVertical: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+    
   },
   screen: {
     backgroundColor: colors.lightGray,
+  }, 
+  image:{
+    height: 80,
+    width: 80,
+    marginRight:20
   },
+  text2:{
+    fontWeight: "bold",
+    fontSize: 19
+  },
+  textContainer:{
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
 
 export default AccountScreen;

@@ -5,24 +5,30 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  ScrollView
 } from "react-native";
 import Text from "../components/Text"
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
 import { Image } from 'react-native-expo-image-cache';
 import ContactSellerForm from "../components/ContactSellerForm";
+import useAuth from '../auth/useAuth';
+import Screen from '../components/Screen';
+
 
 function ListingDetailsScreen({route}) {
-
+  const {user, logOut} = useAuth()
   const listing = route.params;
-  console.log(listing.title)
+  console.log(user)
 
   return (
+    <ScrollView>
     <KeyboardAvoidingView
     behavior="position"
     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
     >
       
+    
       <Image style={styles.image} uri={listing.images[0].url} />
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{listing.title}</Text>
@@ -30,8 +36,8 @@ function ListingDetailsScreen({route}) {
             <View style={styles.userContainer}>
               <ListItem
                 image={require("../assets/user2.png")}
-                title="Rafael"
-                subTitle="3 Listings"
+                title={user.name}
+                subTitle="Premium User"
                 />
             </View>
             <ContactSellerForm listing={listing} />
@@ -39,7 +45,9 @@ function ListingDetailsScreen({route}) {
 
       
       
+     
       </KeyboardAvoidingView>
+      </ScrollView>
   );
 }
 

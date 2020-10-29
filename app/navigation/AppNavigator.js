@@ -8,6 +8,7 @@ import ListingEditScreen from "../screens/ListingEditScreen";
 import NewListingButton from "./NewListingButton";
 import routes from "./routes";
 import useNotifications from '../hooks/useNotifications';
+import colors from "../config/colors";
 
 
 const Tab = createBottomTabNavigator();
@@ -23,7 +24,7 @@ const AppNavigator = () => {
       component={FeedNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
+          <MaterialCommunityIcons name="home" color={!color ? "dark" : color } size={size} />
         ),
       }}
     />

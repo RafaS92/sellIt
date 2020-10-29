@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
-import { StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList, ImageBackground } from "react-native";
 
 
 
@@ -36,7 +36,16 @@ useEffect(() => {
   return (
     <>
     <ActivityIndicator visible={getListingsApi.loading} />
-    <Screen style={styles.screen}>
+    <ImageBackground
+      blurRadius={3}
+      style={styles.background}
+      source={{
+        uri:
+          "https://cdn2.f-cdn.com/contestentries/68791/9261050/5337f7fab2996_thumb900.jpg",
+      }}
+      style={styles.container}
+      >
+    
       {getListingsApi.error && <> 
         
         <AppText>Couldn't retrieve the listings</AppText>
@@ -56,17 +65,23 @@ useEffect(() => {
           />
         )}
       />
-    </Screen>
+    </ImageBackground>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    padding: 20,
-    backgroundColor: colors.lightGray,
-  
+  container: {
+    marginVertical: 10,
+    padding: 20
   },
+  image:{
+    height: 80,
+    width: 80,
+    marginRight:20
+  }
+
 });
+
 
 export default ListingsScreen;

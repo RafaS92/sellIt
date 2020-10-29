@@ -1,33 +1,34 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
-import ListItem from "../components/ListItem";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
+import ListItem from '../components/ListItem';
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
+import ListItemSeparator from '../components/ListItemSeparator';
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
-    image: require("../assets/Rafablack.png"),
+    title: "Mosh Hamedani",
+    description: "Hey! Is this item still available?",
+    image: require("../assets/user3.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/splash.png"),
+    title: "Mosh Hamedani",
+    description:
+      "I'm interested in this item. When will you be able to post it?",
+    image: require("../assets/user2.png"),
   },
 ];
 
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(initialMessages);
-  const [refreshing, setRefresing] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message) => {
-    const newMessages = messages.filter((m) => m.id !== message.id);
-    setMessages(newMessages);
+    // Delete the message from messages
+    setMessages(messages.filter((m) => m.id !== message.id));
   };
 
   return (
@@ -40,7 +41,7 @@ function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log("selected", item)}
+            onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
@@ -54,7 +55,7 @@ function MessagesScreen(props) {
               id: 2,
               title: "T2",
               description: "D2",
-              image: require("../assets/splash.png"),
+              image: require("../assets/mosh.jpg"),
             },
           ]);
         }}

@@ -37,6 +37,7 @@ export default function ContactSellerForm({ listing }) {
         name="message"
         numberOfLines={3}
         placeholder="Message..."
+        width="100%"
       />
       <SubmitButton title="Contact Seller" />
     </AppForm>
